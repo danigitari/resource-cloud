@@ -10,11 +10,50 @@
   <div class="bg-gray-100">
     <div class="swiper mySwiper">
       <div class="swiper-wrapper h-[550px]">
-        <div class="swiper-slide relative w-full h-full">
+        <div class="swiper-slide relative w-full h-full transition duration-500 ease-in">
           <div class="w-full h-[550px] z-10 overlay absolute"></div>
           <div class="absolute w-full h-[550px]">
             <img
               src="home4.jpg"
+              class="bg-bottom block h-full object-cover absolute w-full"
+              alt=""
+            />
+          </div>
+          <div class="absolute w-full z-30 h-full my-10">
+            <div class="pt-10">
+              <div
+                class="text-white md:ml-10 lg:ml-10 md:pl-10 lg:pl-10 lg:w-1/2 absolute"
+              >
+                <p
+                  class="mt-10 mb-10 font-bold text-3xl text-white flex justify-right pl-5 text-left align-content-start"
+                >
+                  RESOURCE CLOUD ACADEMY
+                </p>
+                <p
+                  class="mb-10 font-semibold text-md text-white flex justify-right pl-5 text-left"
+                >
+                  We help students in IT-related courses equip themselves with
+                  relevant skills before they are out of the university. Our
+                  main niche is in the matters cloud but we believe that all
+                  students taking IT-related courses can benefit from mastering
+                  communication and presentation skills, and the art of personal
+                  branding as early.
+                </p>
+
+                <button
+                  class="bg-[#0146a1] px-[24px] rounded-md text-white py-2 mx-5"
+                >
+                  Why RCA
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide relative w-full h-full">
+          <div class="w-full h-[550px] z-10 overlay absolute"></div>
+          <div class="absolute w-full h-[550px]">
+            <img
+              src="home2.jpg"
               class="bg-bottom block h-full object-cover absolute w-full"
               alt=""
             />
@@ -191,6 +230,7 @@
 <script>
 import Navigation from "./Navigation.vue";
 import Footer from "./Footer.vue";
+import { onMounted } from 'vue'
 
 export default {
   components: {
@@ -199,14 +239,38 @@ export default {
   },
 
   setup() {
-    return {};
+    const swipe = () => {
+      var swiper = new Swiper(".mySwiper", {
+        cssMode: true,
+        mousewheel: true,
+        keyboard: true,
+        autoplay: {
+          delay: 7000,
+          disableOnInteraction: true,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,                                                
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    };
+    onMounted( ()=> {
+        swipe()
+    })
+    return {
+        swipe
+    };
   },
 };
 </script>
 <style scoped>
 .overlay {
   opacity: 0.75;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 .section {
   height: 550px;
