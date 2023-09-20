@@ -3,7 +3,7 @@
     <nav class="ml-10">
       <div class="flex justify-between items-center w-full">
         <div class="bg-white">
-          <img src="rcalogo.jpg" alt="" class="h-16 px-10 my-4 p-1" />
+          <img src="../assets/rcalogo.jpg" alt="" class="h-16 px-10 my-4 p-1" />
         </div>
 
         <div class="flex-1 p-5 flex justify-end">

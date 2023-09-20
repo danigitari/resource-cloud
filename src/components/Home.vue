@@ -14,7 +14,7 @@
           <div class="w-full h-[550px] z-10 overlay absolute"></div>
           <div class="absolute w-full h-[550px]">
             <img
-              src="home4.jpg"
+              src="../assets/home4.jpg"
               class="bg-bottom block h-full object-cover absolute w-full"
               alt=""
             />
@@ -53,7 +53,7 @@
           <div class="w-full h-[550px] z-10 overlay absolute"></div>
           <div class="absolute w-full h-[550px]">
             <img
-              src="home2.jpg"
+              src="../assets/home2.jpg"
               class="bg-bottom block h-full object-cover absolute w-full"
               alt=""
             />
@@ -123,7 +123,7 @@
 
     <div class="flex flex-wrap w-full">
       <div class="w-1/2 p-10 flex justify-center">
-        <img src="thursday.jpeg" class="h-[400px]" alt="" srcset="" />
+        <img src="../assets/thursday.jpeg" class="h-[400px]" alt="" srcset="" />
       </div>
 
       <div class="w-1/2 grid items-center place-items-center pr-20">
@@ -169,7 +169,7 @@
             <div class="p-2 flex items-center justify-center">
               <div
                 class="lg:w-96 lg:h-84 md:h-64 md:w-64 sm:h-48 sm:w-48 xs:w-36 xs:h-36 rounded-lg my-5 photos"
-                :style="{ backgroundImage: `url('thursday.jpeg')` }"
+                :style="{ backgroundImage: `url('../assets/thursday.jpeg')` }"
               ></div>
             </div>
             <p class="flex px-5 py-2 font-semibold">Weekly cloud thursdays</p>
@@ -181,7 +181,7 @@
             <div class="p-2 flex items-center justify-center">
               <div
                 class="lg:w-96 lg:h-84 md:h-64 md:w-64 sm:h-48 sm:w-48 xs:w-36 xs:h-36 rounded-lg my-5 photos"
-                :style="{ backgroundImage: `url('download.jpeg')` }"
+                :style="{ backgroundImage: `url('../assets/download.jpeg')` }"
               ></div>
             </div>
             <p class="flex px-5 py-2 font-semibold">Project Based Training</p>
@@ -193,7 +193,7 @@
             <div class="p-2 flex items-center justify-center">
               <div
                 class="lg:w-96 lg:h-84 md:h-64 md:w-64 sm:h-48 sm:w-48 xs:w-36 xs:h-36 rounded-lg my-5 photos"
-                :style="{ backgroundImage: `url('hsch.jpg')` }"
+                :style="{ backgroundImage: `url('../assets/hsch.jpg')` }"
               ></div>
             </div>
             <p class="flex px-5 py-2 font-semibold">High School Outreaches</p>
@@ -205,7 +205,7 @@
     <p class="text-3xl font-semibold flex justify-center p-5">Benefits</p>
     <div class="flex flex-wrap">
       <div class="w-1/2 px-20 py-10 flex justify-center">
-        <img src="home5.jpg" class="rounded-md" alt="" />
+        <img src="../assets/home5.jpg" class="rounded-md" alt="" />
       </div>
 
       <div class="flex flex-col pt-10">
