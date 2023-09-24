@@ -2,7 +2,7 @@
   <div class="footer bg-[#0146a1] relative bottom-0 w-full">
     <div class="flex justify-around flex-wrap w-full px-10">
       <div class="lg:w-1/3 sm:w-1/2 xs:w-full pt-10">
-        <img src="assets/logo.png" class="h-48 px-10 my-5" alt="" />
+        <img src="/assets/logo.png" class="h-48 px-10 my-5" alt="" />
         <p class="text-white font-bold px-10 text-[20px]">
         <span class="pr-3"> RESOURCE </span> <span class="pr-3">CLOUD </span>ACADEMY
         </p>

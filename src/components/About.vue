@@ -32,7 +32,7 @@
               <div class="p-2 flex items-center justify-center">
                 <div
                   class="lg:w-84 lg:h-84 md:h-64 md:w-64 sm:h-48 sm:w-48 xs:w-36 xs:h-36 rounded-lg my-5 photos"
-                  :style="{ backgroundImage: `url('assets/zippy2.jpg')` }"
+                  :style="{ backgroundImage: `url('/assets/zippy2.jpg')` }"
              
                 ></div>
               </div>
@@ -50,7 +50,7 @@
               <div class="p-2 flex items-center justify-center">
                 <div
                   class="lg:w-84 lg:h-84 md:h-64 md:w-64 sm:h-48 sm:w-48 xs:w-36 xs:h-36 rounded-lg my-5 photos"
-                  :style="{ backgroundImage: `url('assets/sam.jpeg')` }"
+                  :style="{ backgroundImage: `url('/assets/sam.jpeg')` }"
                 ></div>
               </div>
               <p class="text-md text-center font-bold py-5">SAMSON WANJALA</p>
@@ -67,7 +67,7 @@
               <div class="p-2 flex items-center justify-center">
                 <div
                   class="lg:w-84 lg:h-84 md:h-64 md:w-64 sm:h-48 sm:w-48 xs:w-36 xs:h-36 rounded-lg my-5 photos"
-                  :style="{ backgroundImage: `url('assets/steve.jpeg')` }"
+                  :style="{ backgroundImage: `url('/assets/steve.jpeg')` }"
                 ></div>
               </div>
               <p class="text-md text-center font-bold py-5">STEPHEN AMOLO</p>
@@ -84,7 +84,7 @@
               <div class="p-2 flex items-center justify-center">
                 <div
                   class="lg:w-84 lg:h-84 md:h-64 md:w-64 sm:h-48 sm:w-48 xs:w-36 xs:h-36 rounded-lg my-5 photos"
-                  :style="{ backgroundImage: `url('assets/awadh.jpeg')` }"
+                  :style="{ backgroundImage: `url('/assets/awadh.jpeg')` }"
                 ></div>
               </div>
               <p class="text-md text-center font-bold py-5">AWADH SAID</p>
@@ -101,7 +101,7 @@
               <div class="p-2 flex items-center justify-center">
                 <div
                   class="lg:w-84 lg:h-84 md:h-64 md:w-64 sm:h-48 sm:w-48 xs:w-36 xs:h-36 rounded-lg my-5 photos"
-                  :style="{ backgroundImage: `url('assets/albert.jpeg')` }"
+                  :style="{ backgroundImage: `url('/assets/albert.jpeg')` }"
                 ></div>
               </div>
               <p class="text-md text-center font-bold py-5">ALBERT SITATI</p>
@@ -118,7 +118,7 @@
               <div class="p-2 flex items-center justify-center">
                 <div
                   class="lg:w-84 lg:h-84 md:h-64 md:w-64 sm:h-48 sm:w-48 xs:w-36 xs:h-36 rounded-lg my-5 photos"
-                  :style="{ backgroundImage: `url('assets/james.png')` }"
+                  :style="{ backgroundImage: `url('/assets/james.png')` }"
                 ></div>
               </div>
               <p class="text-md text-center font-bold py-5">James Juma </p>

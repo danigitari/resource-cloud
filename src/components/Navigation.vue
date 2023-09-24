@@ -3,7 +3,7 @@
     <nav class="pl-10 bg-[#0146a1]">
       <div class="flex  justify-between items-center w-full ">
 
-          <img src="assets/logo.png" alt="" class=" h-32" />
+          <img src="/assets/logo.png" alt="" class=" h-32" />
   
 
         <div class="flex-1 px-5 flex justify-end">
