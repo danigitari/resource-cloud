@@ -53,7 +53,7 @@
           <div class="w-full h-[550px] z-10 overlay absolute"></div>
           <div class="absolute w-full h-[550px]">
             <img
-              src="/assets/home2.jpg"
+              src="/assets/home6.jpg"
               class="bg-bottom block h-full object-cover absolute w-full"
               alt=""
             />
@@ -270,7 +270,7 @@ export default {
 <style scoped>
 .overlay {
   opacity: 0.75;
-  background-color: rgba(0, 0, 100, 0.5);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 .section {
   height: 550px;
