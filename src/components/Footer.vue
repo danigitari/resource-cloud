@@ -1,8 +1,8 @@
 <template>
-  <div class="footer bg-[#0146a1] relative bottom-0 w-full">
+  <div class="footer bg-[#0146a1] relative bottom-0 w-screen">
     <div class="flex justify-around flex-wrap w-full px-10">
-      <div class="lg:w-1/3 sm:w-1/2 xs:w-full pt-10">
-        <img src="/assets/logo.png" class="h-48 px-10 my-5" alt="" />
+      <div class="lg:w-1/2 sm:w-1/2 xs:w-full ">
+        <img src="/assets/logo.png" class="h-48 px-10 " alt="" />
         <p class="text-white font-bold px-10 text-[20px]">
         <span class="pr-3"> RESOURCE </span> <span class="pr-3">CLOUD </span>ACADEMY
         </p>
@@ -15,25 +15,13 @@
         </div>
       </div>
 
-      <div class="lg:w-1/5 pt-10">
-        <p class="text-white py-5 text-xl xs:px-10">SUPPORT</p>
-        <router-link to="about-us" class="py-2 text-gray-200 xs:px-10 block"
-          >About us</router-link
-        >
-        <router-link to="contact-us" class="py-2 text-gray-200 xs:px-10 block"
-          >Contact us</router-link
-        >
-        <router-link to="faq" class="py-2 text-gray-200 xs:px-10 block"
-          >Faq</router-link
-        >
-      </div>
-      <div class="lg:w-2/10 pt-10">
+      <div class="lg:w-4/10  sm:w-1/2 xs:w-full pt-10">
         <p class="text-white py-5 text-xl xs:px-10">GET IN TOUCH</p>
         <div class="py-2 text-gray-200 xs:px-10">
-          <span class="font-bold pr-5"> Email : </span> resourcecloud@gmail.com
+          <span class="font-bold pr-5"> Email : </span> resourcecloudacademy@gmail.com
         </div>
         <div class="py-2 text-gray-200 xs:px-10">
-          <span class="font-bold pr-5"> Phone : </span> +254 7111 111
+          <span class="font-bold pr-5"> Phone : </span> +254 740111615
         </div>
 
       </div>

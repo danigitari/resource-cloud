@@ -6,7 +6,7 @@
     >
       <i class="fa-sharp fa-solid fa-arrow-up text-white"></i></div
   ></a>
-  <div class="bg-gray-100">
+  <div class="bg-gray-100 pt-40">
     <header class="flex justify-center">
       <p class="text-3xl font-semibold px-5 pt-10 pb-10 heading">About Us</p>
 

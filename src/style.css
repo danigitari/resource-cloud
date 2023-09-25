@@ -10,14 +10,14 @@
 }
 
 .nav-title::after{
-  @apply content-[''] bg-white pt-1 h-[3px] w-0 duration-300 ease-in-out block ;
+  @apply content-[''] bg-[#0146a1]  pt-1 h-[3px] w-0 duration-300 ease-in-out block ;
 
 }
 .nav-title:hover::after{ 
   @apply w-full;
 }
 .heading::after{
-  @apply content-[''] bg-white pt-1 h-[3px] w-0 duration-300 ease-in-out block mt-2;
+  @apply content-[''] bg-[#0146a1]  pt-1 h-[3px] w-0 duration-300 ease-in-out block mt-2;
 
 }
 .heading:hover::after{ 
