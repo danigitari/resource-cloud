@@ -7,14 +7,18 @@
 
 * {
   font-family: "Inter", sans-serif;
+  box-sizing: border-box;
+}
+.nav-title:hover {
+  @apply flex flex-col justify-center items-center w-36 duration-300 ease-in-out 
 }
 
 .nav-title::after{
-  @apply content-[''] bg-[#0146a1]  pt-1 h-[3px] w-0 duration-300 ease-in-out block ;
+  @apply content-[''] bg-[#0146a1]  pt-1 h-[3px] w-0 duration-300 ease-in-out block mt-1 ;
 
 }
 .nav-title:hover::after{ 
-  @apply w-full;
+  @apply w-32 justify-center ;
 }
 .heading::after{
   @apply content-[''] bg-[#0146a1]  pt-1 h-[3px] w-0 duration-300 ease-in-out block mt-2;

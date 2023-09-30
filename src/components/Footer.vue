@@ -1,5 +1,5 @@
 <template>
-  <div class="footer bg-[#0146a1] relative bottom-0 w-screen">
+  <div class="footer bg-[#0146a1] relative bottom-0 max-w-screen">
     <div class="flex justify-around flex-wrap w-full px-10">
       <div class="lg:w-1/2 sm:w-1/2 xs:w-full ">
         <img src="/assets/logo.png" class="h-48 px-10 " alt="" />

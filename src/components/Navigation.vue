@@ -1,40 +1,37 @@
 <template>
-  <header class="z-[20] w-screen">
-    <nav class="pl-10 bg-[#FDFEFF]">
-      <div class="flex justify-between items-center w-full">
+  <header class="z-[20] max-w-screen shadow-md">
+    <nav class=" bg-[#FDFEFF]">
+      <div class="pl-10 flex justify-between items-center w-full">
         <img src="/assets/logo.png" alt="" class="h-32" />
 
-        <div class="flex-1 px-5 hidden md:flex justify-end">
+        <div class="w-full px-5 hidden md:flex justify-end">
           <router-link
-            class="px-10 transition duration-300 ease-in text-[#0146a1]  nav-title font-semibold hover:text-bg-blue-300"
+            class="px-10 transition duration-300 ease-in text-[#0146a1]  nav-title font-semibold hover:text-bg-blue-300 w-32 mx-5"
             to="/"
             >Home</router-link
           >
           <router-link
-            class="px-10 transition duration-300 ease-in text-[#0146a1]  nav-title font-semibold hover:text-bg-blue-300"
+            class="px-10 transition duration-300 ease-in text-[#0146a1]  nav-title font-semibold hover:text-bg-blue-300 w-32 mx-5"
             to="/about"
             >About</router-link
           >
           <router-link
-            class="px-10 transition duration-300 ease-in text-[#0146a1]  nav-title font-semibold hover:text-bg-blue-300"
+            class="px-10 transition duration-300 ease-in text-[#0146a1]  nav-title font-semibold hover:text-bg-blue-300 w-32 mx-5"
             to="/blog"
             >Blog
           </router-link>
-          <router-link
+          <!-- <router-link
             class="px-10 transition duration-300 ease-in text-[#0146a1]  nav-title font-semibold hover:text-bg-blue-300"
             to="/events"
             >Events</router-link
-          >
+          > -->
         </div>
 
-        <button
-          class="border-2 px-[24px] rounded-md text-white py-2 mx-10 hidden md:flex bg-[#0146a1] "
-        >
-          Contact Us
-        </button>
+        <router-link  class="shadow-lg px-[24px] w-40 rounded-md text-white py-2 mx-10 hidden md:flex bg-[#0146a1] " to="/contact"> Contact Us</router-link>  
+
         <div class="hambuger-menu" @click.prevent="showHambugerMenu">
           <button
-            class="block font-bold text-[24px] text-[#0146a1]  pr-10 md:hidden"
+            class="block font-bold text-[24px] text-[#0146a1] w pr-10 md:hidden"
           >
             <i class="fa-solid fa-bars"></i>
           </button>
