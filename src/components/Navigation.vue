@@ -1,22 +1,22 @@
 <template>
   <header class="z-[20] max-w-screen shadow-md">
-    <nav class=" bg-[#FDFEFF]">
+    <nav class="bg-[#FDFEFF]">
       <div class="pl-10 flex justify-between items-center w-full">
         <img src="/assets/logo.png" alt="" class="h-32" />
 
         <div class="w-full px-5 hidden md:flex justify-end">
           <router-link
-            class="px-10 transition duration-300 ease-in text-[#0146a1]  nav-title font-semibold hover:text-bg-blue-300 w-32 mx-5"
+            class=" mx-5 hover:text-bg-blue-300 nav-title text-[#0146a1] font-semibold ease-in duration-200 hover:cursor-pointer w-32 flex flex-col items-center justify-center"
             to="/"
             >Home</router-link
           >
           <router-link
-            class="px-10 transition duration-300 ease-in text-[#0146a1]  nav-title font-semibold hover:text-bg-blue-300 w-32 mx-5"
+            class=" mx-5 hover:text-bg-blue-300 nav-title text-[#0146a1] font-semibold ease-in duration-200 hover:cursor-pointer w-32 flex flex-col items-center justify-center"
             to="/about"
             >About</router-link
           >
           <router-link
-            class="px-10 transition duration-300 ease-in text-[#0146a1]  nav-title font-semibold hover:text-bg-blue-300 w-32 mx-5"
+            class=" mx-5 hover:text-bg-blue-300 nav-title text-[#0146a1] font-semibold ease-in duration-200 hover:cursor-pointer w-32 flex flex-col items-center justify-center"
             to="/blog"
             >Blog
           </router-link>
@@ -27,7 +27,12 @@
           > -->
         </div>
 
-        <router-link  class="shadow-lg px-[24px] w-40 rounded-md text-white py-2 mx-10 hidden md:flex bg-[#0146a1] " to="/contact"> Contact Us</router-link>  
+        <router-link
+          class="shadow-lg px-[24px] w-40 rounded-md text-white py-2 mx-10 hidden md:flex bg-[#0146a1]"
+          to="/contact"
+        >
+          Contact Us</router-link
+        >
 
         <div class="hambuger-menu" @click.prevent="showHambugerMenu">
           <button
@@ -39,7 +44,7 @@
       </div>
     </nav>
     <div class="hidden hambuger block">
-      <div class="flex flex-col text-[#0146a1] ">
+      <div class="flex flex-col text-[#0146a1]">
         <router-link to="/home"
           ><div class="w-full flex justify-center items-center">
             Home
