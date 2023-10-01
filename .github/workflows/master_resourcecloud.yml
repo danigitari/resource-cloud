@@ -52,5 +52,5 @@ jobs:
         with:
           app-name: 'resourcecloud'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1A209ED030784BC38B4E92BA9BF39099 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_30D38C76E76047FFA2A2DF3E1846CC33 }}
           package: .
