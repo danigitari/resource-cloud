@@ -1,5 +1,5 @@
 <template>
-  <div class="h-28"><Navigation /></div>
+  <div class="h-24"><Navigation /></div>
 
   <div></div>
   <Footer />

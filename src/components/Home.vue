@@ -7,7 +7,7 @@
       >
         <i class="fa-sharp fa-solid fa-arrow-up text-white"></i></div
     ></a>
-    <div class="swiper mySwiper top-32">
+    <div class="swiper mySwiper top-24">
       <div class="swiper-wrapper h-[550px]">
         <div
           class="swiper-slide relative w-full h-full transition duration-500 ease-in"
@@ -129,7 +129,12 @@
 
     <div class="flex flex-wrap w-full">
       <div class="lg:w-1/2 w-full p-10 flex justify-center">
-        <img src="/assets/thursday.jpeg" class="h-[400px]" alt="" srcset="" />
+        <img
+          :src="currentImage"
+          class="h-[400px]"
+          alt=""
+          srcset=""
+        />
       </div>
 
       <div
@@ -241,8 +246,10 @@
 <script>
 import Navigation from "./Navigation.vue";
 import Footer from "./Footer.vue";
-import { onMounted } from "vue";
-
+import { onBeforeMount, onMounted, ref } from "vue";
+import { useStore } from "vuex";
+import { storage } from "../firebase";
+import { listAll, ref as reference, getDownloadURL } from "firebase/storage";
 export default {
   components: {
     Navigation,
@@ -250,6 +257,9 @@ export default {
   },
 
   setup() {
+    const currentImage = ref("");
+
+    const store = useStore();
     const swipe = () => {
       var swiper = new Swiper(".mySwiper", {
         cssMode: true,
@@ -275,6 +285,22 @@ export default {
         navbar.classList.toggle("sticky", window.scrollY > 0);
       });
     };
+    onBeforeMount(() => {
+       listAll(reference(storage)).then((res) => {
+        console.log(res.items, "res");
+
+        getDownloadURL(res.items[0])
+          .then((url) => {
+            // console.log(url, "url");
+            currentImage.value =url;
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+
+        console.log();
+      });
+    });
 
     onMounted(() => {
       swipe();
@@ -283,6 +309,8 @@ export default {
     return {
       swipe,
       toggleNavbarClass,
+      store,
+      currentImage,
     };
   },
 };

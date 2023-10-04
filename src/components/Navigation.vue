@@ -2,7 +2,7 @@
   <header class="z-[20] max-w-screen shadow-md">
     <nav class="bg-[#FDFEFF]">
       <div class="pl-10 flex justify-between items-center w-full">
-        <img src="/assets/logo.png" alt="" class="h-32" />
+        <img src="/assets/logo.png" alt="" class="h-24" />
 
         <div class="w-full px-5 hidden md:flex justify-end">
           <router-link

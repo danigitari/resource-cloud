@@ -7,7 +7,7 @@
       <i class="fa-sharp fa-solid fa-arrow-up text-white"></i></div
   ></a>
 
-  <div class="swiper-wrapper h-[550px] top-32">
+  <div class="swiper-wrapper h-[550px] top-24">
     <div class="swiper-slide relative w-full h-full">
       <div class="w-full h-[500px] z-10 overlay absolute"></div>
       <div class="absolute w-full h-[500px]">

@@ -1,16 +1,16 @@
 <template>
-  <div class="bg-gray-25">
-    <div class="z-20 top-0 h-32 shadow-lg "><Navigation /></div>
+  <div class="bg-gray-50">
+    <div class="z-20 top-0 h-24 shadow-md "><Navigation /></div>
     <div
-      class="text-center flex max-w-screen justify-center text-3xl font-semibold p-10"
+      class="text-center flex max-w-screen justify-center text-3xl font-semibold b p-10"
     >
       Contact us
     </div>
-    <div class="flex flex-wrap max-w-screen mb-20">
-      <div class="w-full lg:w-1/2">
+    <div class="flex flex-wrap max-w-screen  mb-20">
+      <div class="w-full lg:w-1/2 bg-transparent">
         <img
           src="/assets/contact.png"
-          class="w-full px-20 pt-10 h-96 "
+          class="w-full px-20 pt-10 h-96 bg-transparent "
           alt=""
         />
       </div>
@@ -57,7 +57,7 @@
              Comment or Message
             </label>
             <textarea
-              class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 h-32 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+              class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 h-24 mb-3 leading-tight focus:outline-none focus:shadow-outline"
               id="comment"
               type="text"
               placeholder="Comment"

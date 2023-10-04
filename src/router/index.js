@@ -2,7 +2,8 @@ import { createRouter, createWebHistory } from "vue-router";
 import Home from "../components/Home.vue";
 import About from "../components/About.vue";
 import Contact from "../components/Contact.vue";
-import Blog from "../components/blog.vue"
+import Blog from "../components/Blog.vue";
+import AdminBackend from "../components/AdminBackend.vue"
 
 const routes = [
   {
@@ -24,6 +25,11 @@ const routes = [
     path: "/blog",
     name: "Blog",
     component: Blog,
+  },
+  {
+    path: "/admin",
+    name: "admin",
+    component: AdminBackend,
   },
 ];
 
