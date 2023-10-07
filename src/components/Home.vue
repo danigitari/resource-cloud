@@ -329,7 +329,7 @@ export default {
   transition: transform 0.5s ease;
 }
 .team:hover {
-  transform: scale(1.1);
+  transform: scale(1.02);
 }
 .photos {
   background-position: top;

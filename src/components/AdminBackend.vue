@@ -1,16 +1,22 @@
 <template>
   <div class="h-24"><Navigation /></div>
 
-  <div class="flex flex-col gap-8 m-5">
+
+  <div class="flex flex-col gap-8 p-5 bg-gray-200">
+
+    change cloud thursday photo 
+    
     <input type="file" @change="uploadFile" />
-   <div id="preview"> </div> <img :src="file" class="w-[150px]" alt="" />
+    <div id="preview"></div>
+    <img :src="file" class="w-[150px]" alt="" />
     <div class="m-5">
-    <button
-      class="shadow-lg px-[24px] rounded-md text-white py-2 mx-10 hidden md:flex bg-[#0146a1] "
-      @click="submitFile"
-    >
-      Submit
-    </button></div>
+      <button
+        class="shadow-lg px-[24px] rounded-md text-white py-2 mx-10 bg-[#0146a1]"
+        @click="submitFile"
+      >
+        Submit
+      </button>
+    </div>
   </div>
 
   <Footer />
@@ -36,14 +42,13 @@ const file = ref(null);
 
 const uploadFile = (e) => {
   file.value = e.target.files[0];
-let image = URL.createObjectURL(e.target.files[0]);
-let imagediv= document.getElementById('preview');
-let newimg=document.createElement('img');
-imagediv.innerHTML=' ';
-newimg.src=image;
-newimg.width="300";
-imagediv.appendChild(newimg);
-
+  let image = URL.createObjectURL(e.target.files[0]);
+  let imagediv = document.getElementById("preview");
+  let newimg = document.createElement("img");
+  imagediv.innerHTML = " ";
+  newimg.src = image;
+  newimg.width = "300";
+  imagediv.appendChild(newimg);
 };
 
 const submitFile = () => {

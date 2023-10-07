@@ -37,6 +37,7 @@ export default createStore({
     },
     SET_CLOUD_THURSDAY_IMAGE(state, url) {
       state.cloudThursdayImage = url;
+      console.log(state.cloudThursdayImage);
     },
   },
   actions: {
@@ -58,7 +59,7 @@ export default createStore({
         return;
       }
       commit("SET_USER", auth.currentUser);
-      router.push("/home");
+      router.push("/admin");
     },
     async register({ commit }, details) {
       const { email, password } = details;
@@ -85,7 +86,7 @@ export default createStore({
         return;
       }
       commit("SET_USER", auth.currentUser);
-      router.push("/home");
+      router.push("/admin");
     },
     async logout({ commit }) {
       await signOut(auth);
@@ -99,7 +100,7 @@ export default createStore({
         } else {
           commit("SET_USER", user);
           if (router.isReady && router.currentRoute.value.path === "/login") {
-            router.push("/home");
+            router.push("/admin");
           }
         }
       });
