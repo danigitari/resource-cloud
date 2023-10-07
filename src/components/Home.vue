@@ -1,13 +1,13 @@
 <template>
   <div class="bg-gray-100">
-    <div class="nav z-[70]"><Navigation /></div>
+    <div class="navbar"><Navigation /></div>
     <a href="">
       <div
         class="fixed h-12 w-12 z-[60] shadow-md rounded-full bg-blue-600 bottom-4 right-4 flex justify-center items-center"
       >
         <i class="fa-sharp fa-solid fa-arrow-up text-white"></i></div
     ></a>
-    <div class="swiper mySwiper top-24">
+    <div class="swiper mySwiper">
       <div class="swiper-wrapper h-[550px]">
         <div
           class="swiper-slide relative w-full h-full transition duration-500 ease-in"
@@ -20,7 +20,7 @@
               alt=""
             />
           </div>
-          <div class="absolute w-full z-30 h-full my-10">
+          <div class="absolute w-full z-30 h-full">
             <div class="pt-10">
               <div
                 class="text-white md:ml-10 lg:ml-10 md:pl-10 lg:pl-10 lg:w-1/2 absolute"
@@ -92,7 +92,7 @@
         </div>
       </div>
     </div>
-    <div class="w-full flex items-center justify-center mt-40 p-10">
+    <div class="w-full flex items-center justify-center mt-50 p-10">
       <div
         class="flex flex-col md:flex-row w-full justify-around p-10 bg-white rounded-md shadow-lg"
       >
@@ -129,12 +129,7 @@
 
     <div class="flex flex-wrap w-full">
       <div class="lg:w-1/2 w-full p-10 flex justify-center">
-        <img
-          :src="currentImage"
-          class="h-[400px]"
-          alt=""
-          srcset=""
-        />
+        <img :src="currentImage" class="h-[400px]" alt="" srcset="" />
       </div>
 
       <div
@@ -215,7 +210,13 @@
         </div>
       </div>
     </div>
-    <p class="text-3xl font-semibold flex justify-center p-5">Benefits</p>
+
+    <p
+      class="text-3xl flex flex-col justify-center items-center font-semibold heading p-5"
+    >
+      Benefits
+    </p>
+
     <div class="flex flex-wrap p-10">
       <div class="lg:w-1/2 w-full lg:px-20 px-4 py-10 flex justify-center">
         <img
@@ -227,16 +228,31 @@
 
       <div class="flex flex-col pt-10">
         <div class="py-5">
-          <span class="font-semibold py-3"> Learn Everywhere</span>
-          <p>Through our virtual Nature , Learn at your own comfort</p>
+          <span class="font-semibold py-3 flex gap-x-3 items-center">
+            <img src="/assets/Group.png" alt="" class="h-7" /> Learn
+            Everywhere</span
+          >
+          <p class="px-10">
+            Through our virtual Nature , Learn at your own comfort
+          </p>
         </div>
-        <div class="py-5">
-          <span class="font-semibold"> Experienced Tutor </span>
-          <p>Get Access to teachers who are passionate about teaching</p>
+        <div class="py-3">
+          <span class="font-semibold py-3 flex gap-x-3 items-center">
+            <img src="/assets/Group.png" alt="" class="h-7" />Experienced Tutors
+          </span>
+          <p class="px-10">
+            Get Access to teachers who are passionate about teaching
+          </p>
         </div>
-
-        <span class="font-semibold"> Explore Newest Technologies </span>
-        <p>Learn about the most recent trends in the cloud space</p>
+        <div class="py-3">
+          <span class="font-semibold py-3 flex gap-x-3 items-center">
+            <img src="/assets/Group.png" alt="" class="h-7" /> Explore Newest
+            Technologies
+          </span>
+          <p class="px-10">
+            Learn about the most recent trends in the cloud space
+          </p>
+        </div>
       </div>
     </div>
     <div class="w-full"><Footer /></div>
@@ -286,13 +302,13 @@ export default {
       });
     };
     onBeforeMount(() => {
-       listAll(reference(storage)).then((res) => {
+      listAll(reference(storage)).then((res) => {
         console.log(res.items, "res");
 
         getDownloadURL(res.items[0])
           .then((url) => {
             // console.log(url, "url");
-            currentImage.value =url;
+            currentImage.value = url;
           })
           .catch((error) => {
             console.log(error);
@@ -320,6 +336,10 @@ export default {
   opacity: 0.75;
   background-color: rgba(0, 0, 0, 0.5);
 }
+.navbar {
+  display: block;
+  z-index: 200;
+}
 .section {
   height: 550px;
   /* z-index: -1; */
@@ -338,15 +358,16 @@ export default {
 .sticky {
   background-color: #fff;
   position: fixed;
-  z-index: 10;
+  z-index: 100;
   width: 100%;
-  height: 20px;
   transition: all 0.5s ease;
   box-shadow: 0 5px 16px 0 rgba(0, 0, 0, 0.5);
+  height: 100px;
 }
 .nav {
-  z-index: 15;
+  z-index: -1;
 }
+
 .show {
   transform: translateY(100px);
   position: absolute;

@@ -81,7 +81,7 @@ export default {
     const error = ref('');
     // todo 
     const login = () => {
-      store.dispatch('register', form.value)
+      store.dispatch('login', form.value)
     }
     onBeforeMount(()=> {
       store.dispatch('fetchUser')

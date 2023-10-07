@@ -1,11 +1,9 @@
 <template>
   <div class="h-24"><Navigation /></div>
 
-
   <div class="flex flex-col gap-8 p-5 bg-gray-200">
+    <p class="font-semibold">Change cloud thursday photo</p>
 
-    change cloud thursday photo 
-    
     <input type="file" @change="uploadFile" />
     <div id="preview"></div>
     <img :src="file" class="w-[150px]" alt="" />
@@ -17,6 +15,41 @@
         Submit
       </button>
     </div>
+  </div>
+
+  <div class="flex flex-col w-1/2">
+    <p class="font-semibold  m-3">Add a new Blog</p>
+    <input
+      type="text"
+      placeholder="Heading"
+      class="px-5 py-2 border-2 border-blue-500 rounded-md m-3"
+    />
+    <input
+      type="text"
+      placeholder="Introduction Text"
+      class="px-5 py-2 border-2 border-blue-500 rounded-md m-3"
+    />
+    <input
+      type="text"
+      placeholder="Date"
+      class="px-5 py-2 border-2 border-blue-500 rounded-md m-3"
+    />
+    <input
+      type="text"
+      placeholder=" Author"
+      class="px-5 py-2 border-2 border-blue-500 rounded-md m-3"
+    />
+    <input
+      type="text"
+      placeholder="Estimated read Time"
+      class="px-5 py-2 border-2 border-blue-500 rounded-md m-3"
+    />
+    <input
+      type="text"
+      placeholder="Link"
+      class="px-5 py-2 border-2 border-blue-500 rounded-md m-3"
+    />
+
   </div>
 
   <Footer />

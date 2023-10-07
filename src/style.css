@@ -25,5 +25,5 @@
 
 }
 .heading:hover::after{ 
-  @apply w-full;
+  @apply w-[calc(200px)];
 }
