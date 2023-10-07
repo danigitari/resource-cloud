@@ -17,7 +17,7 @@
       <div class="w-full lg:w-1/2 p-10 ">
         <form
           class="bg-white rounded px-8 pt-6 pb-8 mb-4 mx-10 shadow-lg"
-          action="https://formsubmit.co/danigitari@gmail.com"
+          action="https://formsubmit.co/resourcecloudacademy@gmail.com"
           method="POST"
         >
           <div class="mb-4">

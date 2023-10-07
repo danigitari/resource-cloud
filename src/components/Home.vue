@@ -143,7 +143,7 @@
         <button
           class="bg-[#0146a1] text-white text-md px-5 py-2 lg:mb-10 rounded-md flex justify-center"
         >
-          Join Cloud Thursday
+          Join the Next Cloud Thursday 
         </button>
       </div>
     </div>

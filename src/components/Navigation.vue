@@ -20,11 +20,11 @@
             to="/blog"
             >Blog
           </router-link>
-          <!-- <router-link
+          <router-link
             class="px-10 transition duration-300 ease-in text-[#0146a1]  nav-title font-semibold hover:text-bg-blue-300"
-            to="/events"
-            >Events</router-link
-          > -->
+            to="/admin"
+            >login</router-link
+          >
         </div>
 
         <router-link
