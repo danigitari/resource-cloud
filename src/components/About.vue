@@ -7,42 +7,7 @@
       >
         <i class="fa-sharp fa-solid fa-arrow-up text-white"></i></div
     ></a>
-
-    <div class="swiper-wrapper h-[500px]">
-      <div class="swiper-slide relative w-full h-full">
-        <div class="w-full h-[500px] z-10 overlay absolute"></div>
-        <div class="absolute w-full h-[500px]">
-          <img
-            src="/assets/about.jpg"
-            class="bg-bottom block h-full object-cover absolute w-full"
-            alt=""
-          />
-        </div>
-        <div class="absolute w-full z-30 h-full">
-          <div class="pt-10">
-            <div
-              class="text-white md:ml-10 lg:ml-10 md:pl-10 lg:pl-10 lg:w-1/2 absolute"
-            >
-              <p
-                class="mt-10 mb-10 font-bold text-3xl text-white flex justify-right pl-5 text-left align-content-start"
-              >
-                ABOUT US
-              </p>
-              <p
-                class="mb-10 font-semibold text-md text-white flex justify-right pl-5 text-left"
-              >
-                We help students in IT-related courses equip themselves with
-                relevant skills before they are out of the university. Our main
-                niche is in the matters cloud but we believe that all students
-                taking IT-related courses can benefit from mastering
-                communication and presentation skills, and the art of personal
-                branding as early.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+      
     <div class="pt-10">
       <div class="flex justify-center flex-col items-center">
         <p class="text-3xl font-semibold px-5 pt-10 pb-10 heading">

@@ -15,7 +15,7 @@
           <div class="w-full h-[550px] z-20 overlay absolute"></div>
           <div class="absolute w-full h-[550px] z-10">
             <img
-              src="/assets/home4.jpg"
+              src="/assets/home6.jpg"
               class="bg-bottom block h-full object-cover absolute w-full"
               alt=""
             />
@@ -26,7 +26,7 @@
                 class="text-white md:ml-10 lg:ml-10 md:pl-10 lg:pl-10 lg:w-1/2 absolute"
               >
                 <p
-                  class="mt-10 mb-10 font-bold text-4xl text-white flex justify-right pl-5 text-left align-content-start"
+                  class="mt-20 mb-10 font-bold text-4xl text-white flex justify-right pl-5 text-left align-content-start"
                 >
                   RESOURCE CLOUD ACADEMY
                 </p>
@@ -34,7 +34,7 @@
                   class="mb-10 font-semibold text-md text-white flex justify-right pl-5 text-left"
                 >
                   We help students in IT-related courses equip themselves with
-                  relevant skills before they are out of the university. Our
+                  relevant skills before they are out of the university.  Our
                   main niche is in the matters cloud but we believe that all
                   students taking IT-related courses can benefit from mastering
                   communication and presentation skills, and the art of personal
@@ -55,7 +55,7 @@
           <div class="w-full h-[550px] z-10 overlay absolute"></div>
           <div class="absolute w-full h-[550px]">
             <img
-              src="/assets/home6.jpg"
+              src="/assets/home4.jpg"
               class="bg-bottom block h-full object-cover absolute w-full"
               alt=""
             />
@@ -135,7 +135,7 @@
       <div
         class="lg:w-1/2 w-full grid items-center place-items-center pr-5 lg:pr-20 h-96"
       >
-        <article class="font-semibold text-2xl flex justify-center h-4">
+        <article class="font-semibold text-2xl flex justify-center text-center h-4">
           Creating a supportive and collaborative community that fosters new
           ideas and creativity now and for future generations
         </article>
@@ -282,7 +282,7 @@ export default {
         mousewheel: true,
         keyboard: true,
         autoplay: {
-          delay: 7000,
+          delay: 10000,
           disableOnInteraction: true,
         },
         pagination: {

@@ -20,11 +20,6 @@
             to="/blog"
             >Blog
           </router-link>
-          <router-link
-            class="px-10 transition duration-300 ease-in text-[#0146a1]  nav-title font-semibold hover:text-bg-blue-300"
-            to="/admin"
-            >login</router-link
-          >
         </div>
 
         <router-link
@@ -77,7 +72,7 @@ export default {
         const navbar = document.querySelector(".img");
         navbar.classList.toggle("imageHeightOnScroll", window.scrollY > 0);
         const main = document.querySelector(".img");
-        main.classList.toggle('newHeight' , window.scrollY > 0)
+        main.classList.toggle("newHeight", window.scrollY > 0);
       });
     };
     onMounted(() => {
@@ -115,7 +110,6 @@ export default {
   display: block !important;
   font-size: 16px;
   transition: 1s ease-in;
-
 }
 
 .hambuger-menu-dropdown > div > a {
