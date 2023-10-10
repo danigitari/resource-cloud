@@ -6,7 +6,7 @@
     >
       Contact us
     </div>
-    <div class="flex flex-wrap max-w-screen mb-20 ">
+    <div class="flex flex-wrap max-w-screen mb-20">
       <div class="w-full lg:w-1/2 px-5 bg-transparent">
         <img
           src="/assets/contact.png"
@@ -14,7 +14,7 @@
           alt=""
         />
       </div>
-      <div class="w-full lg:w-1/2 p-10 ">
+      <div class="w-full lg:w-1/2 p-10">
         <form
           class="bg-white rounded px-8 pt-6 pb-8 mb-4 mx-10 shadow-lg"
           action="https://formsubmit.co/resourcecloudacademy@gmail.com"
@@ -27,7 +27,7 @@
             >
               Name
             </label>
-            <input type="hidden" name="_next" value="/">
+            <input type="hidden" name="_next" value="/" />
             <input
               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="Name"

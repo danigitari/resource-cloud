@@ -23,10 +23,12 @@ export default createStore({
   state: {
     user: null,
     cloudThursdayImage: null,
+    isLoading: false,
   },
   getters: {
     user: (state) => state.user,
     cloudThursdayImage: (state) => state.cloudThursdayImage,
+    isLoading: (state) => state.isLoading,
   },
   mutations: {
     SET_USER(state, user) {
@@ -39,7 +41,11 @@ export default createStore({
       state.cloudThursdayImage = url;
       console.log(state.cloudThursdayImage);
     },
+    SET_ISLOADING(state, isLoading) {
+      state.isLoading = isLoading;
+    },
   },
+
   actions: {
     async login({ commit }, details) {
       const { email, password } = details;
@@ -107,12 +113,13 @@ export default createStore({
     },
 
     async submitFile({ commit }, file) {
-     
-      const imageRef = reference(storage, `${file.name + v4()}`);
+      commit("SET_ISLOADING", true);
+      const imageRef = reference(storage, `${file + v4()}`);
       await uploadBytes(imageRef, file).then((snapshot) => {
         getDownloadURL(snapshot.ref).then((url) => {
           commit("SET_CLOUD_THURSDAY_IMAGE", url);
           console.log(url);
+          commit("SET_ISLOADING", false);
         });
         console.log("Uploaded a blob or file!");
       });

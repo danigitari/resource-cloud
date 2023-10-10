@@ -7,17 +7,29 @@
       >
         <i class="fa-sharp fa-solid fa-arrow-up text-white"></i></div
     ></a>
-      
+    <header class="flex justify-center">
+      <p class="text-3xl flex flex-col justify-center items-center font-semibold heading p-20">About Us</p>
+    </header>
+
+    <div class="flex justify-center p-10 h-56">
+      <p class="text-center font-semibold text-gray-700 w-3/4">
+        We help students in IT-related courses equip themselves with relevant
+        skills before they are out of the university. Our main niche is in the
+        matters cloud but we believe that all students taking IT-related courses
+        can benefit from mastering communication and presentation skills, and
+        the art of personal branding as early.
+      </p>
+    </div>
     <div class="pt-10">
       <div class="flex justify-center flex-col items-center">
-        <p class="text-3xl font-semibold px-5 pt-10 pb-10 heading">
+        <p class="text-3xl flex flex-col justify-center items-center font-semibold heading p-5">
           Core Focus
         </p>
         <div
           class="w-2/3 lg:w-1/2 p-5 m-5 bg-white rounded-md shadow-lg flex flex-col items-center justify-center"
         >
           <img src="/assets/Frame.png" class="w-48" alt="" />
-          <article class="p-10 text-center ">
+          <article class="p-10 text-center">
             In this track we are creating an elite community by providing
             resources to help our members skill up. We have meetups at every
             fortnight to work as a team by tackling real world projects

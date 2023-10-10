@@ -2,7 +2,7 @@
   <div class=""><Navigation /></div>
 
   <div class="flex flex-col gap-8 p-5 bg-gray-200">
-    <div class="flex">
+    <div class="flex flex-wrap">
       <div class="w-full md:w-1/2">
         <p class="font-semibold mx-10 py-5">Change cloud thursday photo</p>
         <div
@@ -12,7 +12,7 @@
             <div class="text-center">
               <svg
                 v-if="!file"
-                class="mx-auto h-12 w-12 text-gray-300"
+                class="mx-auto h-12 w-12 text-gray-300 mb-5"
                 viewBox="0 0 24 24"
                 fill="currentColor"
                 aria-hidden="true"
@@ -25,7 +25,11 @@
               </svg>
               <div class="flex text-sm leading-6 text-gray-600">
                 <label for="file-upload" class="">
-                  <span v-if="!file">Upload Photo</span>
+                  <span
+                    v-if="!file"
+                    class="p-2 text-white shadow-md m-2 rounded-md bg-[#0146a1]"
+                    >Upload Photo</span
+                  >
                   <input
                     id="file-upload"
                     name="file-upload"
@@ -48,7 +52,7 @@
         </button>
       </div>
 
-      <div class="w-full md:w-1/3">
+      <div class="w-full mx-10  mt-10 md:w-1/3">
         <p class="font-semibold py-5">Edit cloud thursday link</p>
         <label class=" " for="author"> Link</label>
         <input
@@ -66,7 +70,7 @@
 
     <!-- component -->
     <section
-      class="p-6 w-full md:w-2/3 m-10 bg-white rounded-md shadow-md mt-20"
+      class="p-6 md:w-2/3 m-10 bg-white rounded-md shadow-md mt-20"
     >
       <h1 class="text-xl font-bold capitalize dark:">New Blog</h1>
       <form>
@@ -76,6 +80,7 @@
             <input
               id="Blog Heading"
               type="text"
+              v-model="heading"
               class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
             />
           </div>
@@ -85,6 +90,7 @@
             <input
               id="author"
               type="text"
+              v-model="author"
               class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
             />
           </div>
@@ -94,6 +100,7 @@
             <textarea
               id="text"
               type="text"
+              v-model="introductionText"
               class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
             ></textarea>
           </div>
@@ -103,6 +110,7 @@
             <input
               id="date"
               type="date"
+              v-model="date"
               class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
             />
           </div>
@@ -110,10 +118,11 @@
             <label class=" " for=""> Link to Blog</label>
             <input
               type="text"
+              v-model="link"
               class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
             />
           </div>
-          <div class="coll-span-full">
+          <div class="col-span-full">
             <label class="block text-sm font-medium"> Image </label>
             <div
               class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md"
@@ -138,13 +147,17 @@
                     for="file-upload"
                     class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
                   >
-                    <span class="">Upload a file</span>
+                    <div id="blogPreview"></div>
+                    <span class="" v-if="!blogImage">Upload a file</span>
                     <input
                       id="file-upload"
                       name="file-upload"
                       type="file"
-                      class="sr-only"
+                
+                      @change="uploadBlogImage"
+                      ref="blogImageRef"
                     />
+                    <img :src="blogImage" ref="blogRef" alt="" />
                   </label>
                   <p class="pl-1">or drag and drop</p>
                 </div>
@@ -170,7 +183,7 @@
 <script setup>
 import Navigation from "./Navigation.vue";
 import Footer from "./Footer.vue";
-import { ref, computed } from "vue";
+import { ref, computed, onMounted } from "vue";
 import {
   ref as reference,
   uploadBytes,
@@ -184,6 +197,16 @@ import { v4 } from "uuid";
 
 const store = useStore();
 const file = ref(null);
+const blogRef = ref(null);
+
+const uploadBlogImage = (e) => {
+  blogImageRef.click;
+};
+
+const blogImageRef = ref();
+onMounted(() => {
+  uploadBlogImage();
+});
 
 const uploadFile = (e) => {
   file.value = e.target.files[0];
@@ -210,12 +233,69 @@ const submitFile = () => {
     });
   });
   store.dispatch("submitFile", file.value);
-  file.value = null;
+};
+const deleteBlog = (id) => {
+  deleteDoc(doc(nexOfKinList, id));
+};
+
+const newauthor = ref("");
+const newdate = ref("");
+const newheading = ref("");
+const newintroductionText = ref("");
+const newlink = ref("");
+const newreadtime = ref("");
+const updateBlog = (id) => {
+  updateDoc(doc(db, "blogs", id), {
+    author: newauthor.value,
+    date: newdate.value,
+    heading: newheading.value,
+    introductionText: newintroductionText.value,
+    link: newlink.value,
+    readtime: newreadtime.value,
+  });
 };
 
 const listImages = () => {
   listAll(storage).then((res) => {
     console.log(res.items);
+  });
+
+  const isLoading = ref(false);
+  function submitFiles() {
+    isLoading.value = true;
+    const imageRef = reference(storage, `${file.value + v4()}`);
+    uploadBytes(imageRef, file.value).then((snapshot) => {
+      getDownloadURL(snapshot.ref).then((url) => {
+        commit("SET_CLOUD_THURSDAY_IMAGE", url);
+        console.log(url);
+        commit("SET_ISLOADING", false);
+      });
+      console.log("Uploaded a blob or file!");
+    });
+  }
+
+  const q = query(
+    collection(db, "blogs")
+    // where("user", "==", auth.currentUser.email)
+  );
+  onSnapshot(q, (querySnapshot) => {
+    const blogs = [];
+    querySnapshot.forEach((doc) => {
+      console.log(doc.id, " => ", doc.data());
+      const pushDocs = {
+        id: doc.id,
+        author: doc.data().author,
+        date: doc.data().date,
+        heading: doc.data().heading,
+        introductionText: doc.data().introductionText,
+        link: doc.data().link,
+        readtime: doc.data().readtime,
+      };
+
+      blogs.push(pushDocs);
+    });
+    docs.value = blogs;
+    console.log(docs.value, "blogs");
   });
 };
 </script>

@@ -98,7 +98,7 @@
       >
         <article class="">
           <span
-            class="text-4xl block flex justify-center p-5 text-[#0146a1] font-semibold"
+            class="text-4xl  flex justify-center p-5 text-[#0146a1] font-semibold"
           >
             20 +
           </span>
@@ -106,7 +106,7 @@
         </article>
         <article class="">
           <span
-            class="text-4xl block flex justify-center p-5 text-[#0146a1] font-semibold"
+            class="text-4xl flex justify-center p-5 text-[#0146a1] font-semibold"
           >
             30 +
           </span>
@@ -116,7 +116,7 @@
         </article>
         <article class="">
           <span
-            class="text-4xl block flex justify-center p-5 text-[#0146a1] font-semibold"
+            class="text-4xl flex justify-center p-5 text-[#0146a1] font-semibold"
           >
             41.7%
           </span>
@@ -148,7 +148,7 @@
       </div>
     </div>
     <div
-      class="flex flex-wrap gap-10 flex justify-center pb-20 pt-20 bg-blue-600"
+      class="flex flex-wrap gap-10 justify-center pb-20 pt-20 bg-blue-600"
     >
       <div class="lg:w-1/3 sm:w-3/4 p-5 m-5 bg-white rounded-md shadow-lg">
         <p class="text-xl font-semibold flex justify-center">Mission</p>
