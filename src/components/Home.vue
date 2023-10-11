@@ -269,7 +269,7 @@ import { useStore } from "vuex";
 import { storage } from "../firebase";
 import { listAll, ref as reference, getDownloadURL } from "firebase/storage";
 import { addDoc, collection, getDocs } from "firebase/firestore";
-import { db} from "../firebase"
+import { db } from "../firebase";
 export default {
   components: {
     Navigation,
@@ -337,7 +337,7 @@ export default {
       toggleNavbarClass,
       store,
       currentImage,
-      currentLink
+      currentLink,
     };
   },
 };

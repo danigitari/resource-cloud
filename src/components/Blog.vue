@@ -153,8 +153,6 @@ import { onMounted, ref } from "vue";
 import { useMagicKeys, whenever } from "@vueuse/core";
 import { useRouter } from "vue-router";
 
-
-
 export default {
   components: {
     Navigation,
@@ -162,7 +160,7 @@ export default {
   },
 
   setup() {
-    const { Ctrl_A_Z  } = useMagicKeys();
+    const { Ctrl_A_Z } = useMagicKeys();
     whenever(Ctrl_A_Z, () => {
       router.push("login");
       console.log("asdf");
