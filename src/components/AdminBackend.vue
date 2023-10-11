@@ -45,7 +45,11 @@
           </div>
         </div>
         <button
-          :class=" isloading ? 'shadow-lg px-[25px] rounded-md w-40 text-white py-2 mx-10 bg-gray-500':  'shadow-lg px-[25px] rounded-md w-40 text-white py-2 mx-10 bg-[#0146a1]'"
+          :class="
+            isloading
+              ? 'shadow-lg px-[25px] rounded-md w-40 text-white py-2 mx-10 bg-gray-500'
+              : 'shadow-lg px-[25px] rounded-md w-40 text-white py-2 mx-10 bg-[#0146a1]'
+          "
           @click="submitFile"
           :disabled="isloading === true"
         >
@@ -154,6 +158,7 @@
                       name="file-upload"
                       type="file"
                       @change="blogImage"
+                      class="w-48 md:w-full"
                     />
                     <img ref="blogRef" alt="" />
                   </label>
@@ -194,14 +199,20 @@ import {
 import { storage } from "../firebase/index.js";
 import { useStore } from "vuex";
 import { v4 } from "uuid";
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, getDocs } from "firebase/firestore";
 
 const store = useStore();
 const file = ref(null);
 const blogRef = ref(null);
 
-const blogImageRef = ref();
-onMounted(() => {});
+onMounted(async () => {
+  const querySnapshot = await getDocs(collection(db, "cloudThursdayLink"));
+  querySnapshot.forEach((doc) => {
+    // doc.data() is never undefined for query doc snapshots
+    thursdayLink.value = doc.data().link;
+    store.commit()
+  });
+});
 
 const uploadFile = (e) => {
   file.value = e.target.files[0];
@@ -256,23 +267,21 @@ const listImages = () => {
   listAll(storage).then((res) => {
     console.log(res.items);
   });
-
-
 };
 const isloading = ref(false);
 function submitFile() {
-isloading.value=true;
-    const imageRef = reference(storage, `${file.value + v4()}`);
-    uploadBytes(imageRef, file.value).then((snapshot) => {
-      getDownloadURL(snapshot.ref).then((url) => {
-        toast.success("Uploaded Successfully", {
-          autoClose: 2000,
-        });
-        isloading.value=false;
+  isloading.value = true;
+  const imageRef = reference(storage, `${file.value + v4()}`);
+  uploadBytes(imageRef, file.value).then((snapshot) => {
+    getDownloadURL(snapshot.ref).then((url) => {
+      toast.success("Uploaded Successfully", {
+        autoClose: 2000,
       });
-      console.log("Uploaded a blob or file!");
+      isloading.value = false;
     });
-  }
+    console.log("Uploaded a blob or file!");
+  });
+}
 const addNewBlog = () => {
   console.log("asdasdf");
   addDoc(collection(db, "blogs"), {

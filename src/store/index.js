@@ -24,11 +24,13 @@ export default createStore({
     user: null,
     cloudThursdayImage: null,
     isLoading: false,
+    cloudThursdayUrl : null
   },
   getters: {
     user: (state) => state.user,
     cloudThursdayImage: (state) => state.cloudThursdayImage,
     isLoading: (state) => state.isLoading,
+    cloudThursdayUrl: (state) => state.cloudThursdayUrl,
   },
   mutations: {
     SET_USER(state, user) {
@@ -39,6 +41,10 @@ export default createStore({
     },
     SET_CLOUD_THURSDAY_IMAGE(state, url) {
       state.cloudThursdayImage = url;
+      console.log(state.cloudThursdayImage);
+    },
+    SET_CLOUD_THURSDAY_URL(state, url) {
+      state.cloudThursdayUrl = url;
       console.log(state.cloudThursdayImage);
     },
     SET_ISLOADING(state, isLoading) {
