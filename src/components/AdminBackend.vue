@@ -45,23 +45,25 @@
           </div>
         </div>
         <button
-          class="shadow-lg px-[25px] rounded-md w-40 text-white py-2 mx-10 bg-[#0146a1]"
+          :class=" isloading ? 'shadow-lg px-[25px] rounded-md w-40 text-white py-2 mx-10 bg-gray-500':  'shadow-lg px-[25px] rounded-md w-40 text-white py-2 mx-10 bg-[#0146a1]'"
           @click="submitFile"
+          :disabled="isloading === true"
         >
           Submit
         </button>
       </div>
 
-      <div class="w-full mx-10  mt-10 md:w-1/3">
+      <div class="w-full mx-10 mt-10 md:w-1/3">
         <p class="font-semibold py-5">Edit cloud thursday link</p>
         <label class=" " for="author"> Link</label>
         <input
           type="text"
+          v-model="thursdayLink"
           class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
         />
         <button
           class="shadow-lg px-[25px] rounded-md w-40 text-white py-2 mt-10 bg-[#0146a1]"
-          @click="submitLink"
+          @click="addLink"
         >
           Submit
         </button>
@@ -69,11 +71,9 @@
     </div>
 
     <!-- component -->
-    <section
-      class="p-6 md:w-2/3 m-10 bg-white rounded-md shadow-md mt-20"
-    >
+    <section class="p-6 md:w-2/3 m-10 bg-white rounded-md shadow-md mt-20">
       <h1 class="text-xl font-bold capitalize dark:">New Blog</h1>
-      <form>
+      <form @submit.prevent="addNewBlog">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
           <div>
             <label class=" " for="Blog Heading">Heading</label>
@@ -148,20 +148,16 @@
                     class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
                   >
                     <div id="blogPreview"></div>
-                    <span class="" v-if="!blogImage">Upload a file</span>
+
                     <input
                       id="file-upload"
                       name="file-upload"
                       type="file"
-                
-                      @change="uploadBlogImage"
-                      ref="blogImageRef"
+                      @change="blogImage"
                     />
-                    <img :src="blogImage" ref="blogRef" alt="" />
+                    <img ref="blogRef" alt="" />
                   </label>
-                  <p class="pl-1">or drag and drop</p>
                 </div>
-                <p class="text-xs">PNG, JPG, GIF up to 10MB</p>
               </div>
             </div>
           </div>
@@ -169,6 +165,7 @@
 
         <div class="flex justify-end mt-6">
           <button
+            type="submit"
             class="px-6 py-2 leading-5 transition-colors duration-200 transform bg-[#0146a1] rounded-md hover:scale-[1.06] text-white focus:outline-none focus:bg-gray-600"
           >
             Save
@@ -183,7 +180,10 @@
 <script setup>
 import Navigation from "./Navigation.vue";
 import Footer from "./Footer.vue";
-import { ref, computed, onMounted } from "vue";
+import { ref, onMounted } from "vue";
+import { toast } from "vue3-toastify";
+import { db } from "../firebase";
+import "vue3-toastify/dist/index.css";
 import {
   ref as reference,
   uploadBytes,
@@ -194,19 +194,14 @@ import {
 import { storage } from "../firebase/index.js";
 import { useStore } from "vuex";
 import { v4 } from "uuid";
+import { addDoc, collection } from "firebase/firestore";
 
 const store = useStore();
 const file = ref(null);
 const blogRef = ref(null);
 
-const uploadBlogImage = (e) => {
-  blogImageRef.click;
-};
-
 const blogImageRef = ref();
-onMounted(() => {
-  uploadBlogImage();
-});
+onMounted(() => {});
 
 const uploadFile = (e) => {
   file.value = e.target.files[0];
@@ -219,31 +214,33 @@ const uploadFile = (e) => {
   imagediv.appendChild(newimg);
 };
 
-const submitFile = () => {
-  const desertRef = reference(storage);
-  listAll(desertRef).then((response) => {
-    response.items.forEach((item) => {
-      deleteObject(reference(storage, "/" + item.name))
-        .then(() => {
-          console.log("deleted", item.name);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    });
-  });
-  store.dispatch("submitFile", file.value);
-};
+// const submitFile = () => {
+//   const desertRef = reference(storage);
+//   listAll(desertRef).then((response) => {
+//     response.items.forEach((item) => {
+//       deleteObject(reference(storage, "/" + item.name))
+//         .then(() => {
+//           console.log("deleted", item.name);
+//         })
+//         .catch((error) => {
+//           console.log(error);
+//         });
+//     });
+//   });
+//   store.dispatch("submitFile", file.value);
+// };
 const deleteBlog = (id) => {
   deleteDoc(doc(nexOfKinList, id));
 };
 
-const newauthor = ref("");
-const newdate = ref("");
-const newheading = ref("");
-const newintroductionText = ref("");
-const newlink = ref("");
-const newreadtime = ref("");
+const author = ref("");
+const date = ref("");
+const heading = ref("");
+const introductionText = ref("");
+const link = ref("");
+const readtime = ref("");
+const blogImage = ref("");
+
 const updateBlog = (id) => {
   updateDoc(doc(db, "blogs", id), {
     author: newauthor.value,
@@ -260,42 +257,49 @@ const listImages = () => {
     console.log(res.items);
   });
 
-  const isLoading = ref(false);
-  function submitFiles() {
-    isLoading.value = true;
+
+};
+const isloading = ref(false);
+function submitFile() {
+isloading.value=true;
     const imageRef = reference(storage, `${file.value + v4()}`);
     uploadBytes(imageRef, file.value).then((snapshot) => {
       getDownloadURL(snapshot.ref).then((url) => {
-        commit("SET_CLOUD_THURSDAY_IMAGE", url);
-        console.log(url);
-        commit("SET_ISLOADING", false);
+        toast.success("Uploaded Successfully", {
+          autoClose: 2000,
+        });
+        isloading.value=false;
       });
       console.log("Uploaded a blob or file!");
     });
   }
-
-  const q = query(
-    collection(db, "blogs")
-    // where("user", "==", auth.currentUser.email)
-  );
-  onSnapshot(q, (querySnapshot) => {
-    const blogs = [];
-    querySnapshot.forEach((doc) => {
-      console.log(doc.id, " => ", doc.data());
-      const pushDocs = {
-        id: doc.id,
-        author: doc.data().author,
-        date: doc.data().date,
-        heading: doc.data().heading,
-        introductionText: doc.data().introductionText,
-        link: doc.data().link,
-        readtime: doc.data().readtime,
-      };
-
-      blogs.push(pushDocs);
+const addNewBlog = () => {
+  console.log("asdasdf");
+  addDoc(collection(db, "blogs"), {
+    author: author.value,
+    date: date.value,
+    heading: heading.value,
+    introductionText: introductionText.value,
+    link: link.value,
+    readtime: readtime.value,
+  }).then(() => {
+    author.value = "";
+    date.value = "";
+    heading.value = "";
+    introductionText.value = "";
+    link.value = "";
+    readtime.value = "";
+    // isloading.value = false;
+    toast.success("Uploaded Successfully", {
+      autoClose: 2000,
     });
-    docs.value = blogs;
-    console.log(docs.value, "blogs");
+  });
+};
+const thursdayLink = ref("");
+const addLink = () => {
+  console.log(thursdayLink.value);
+  addDoc(collection(db, "cloudThursdayLink"), {
+    link: thursdayLink.value,
   });
 };
 </script>

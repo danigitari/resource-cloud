@@ -7,7 +7,7 @@
       Contact us
     </div>
     <div class="flex flex-wrap max-w-screen mb-20">
-      <div class="w-full lg:w-1/2 px-5 bg-transparent">
+      <div class="hidden md:block w-full lg:w-1/2 px-5 bg-transparent">
         <img
           src="/assets/contact.png"
           class="w-full px-20 pt-10 h-96 bg-transparent"

@@ -11,7 +11,7 @@
       <p class="text-3xl flex flex-col justify-center items-center font-semibold heading p-20">About Us</p>
     </header>
 
-    <div class="flex justify-center p-10 h-56">
+    <div class="flex justify-center p-10 ">
       <p class="text-center font-semibold text-gray-700 w-3/4">
         We help students in IT-related courses equip themselves with relevant
         skills before they are out of the university. Our main niche is in the

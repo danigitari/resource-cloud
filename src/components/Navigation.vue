@@ -50,6 +50,11 @@
             About
           </div></router-link
         >
+        <router-link to="/blog">
+          <div class="w-full flex justify-center items-center">
+          Blog
+          </div></router-link
+        >
         <router-link to="/contact">
           <div class="w-full flex justify-center items-center">
             Contact us
