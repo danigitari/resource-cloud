@@ -67,7 +67,7 @@
         />
         <button
           class="shadow-lg px-[25px] rounded-md w-40 text-white py-2 mt-10 bg-[#0146a1]"
-          @click="addLink"
+          @click="UpdateLink"
         >
           Submit
         </button>
@@ -199,18 +199,26 @@ import {
 import { storage } from "../firebase/index.js";
 import { useStore } from "vuex";
 import { v4 } from "uuid";
-import { addDoc, collection, getDocs } from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  getDocs,
+  updateDoc,
+  doc,
+} from "firebase/firestore";
 
 const store = useStore();
 const file = ref(null);
 const blogRef = ref(null);
+const thursdayLinkId = ref("");
 
 onMounted(async () => {
-  const querySnapshot = await getDocs(collection(db, "cloudThursdayLink"));
+  const querySnapshot = await getDocs(collection(db, "cloudThursdayUrl"));
   querySnapshot.forEach((doc) => {
     // doc.data() is never undefined for query doc snapshots
     thursdayLink.value = doc.data().link;
-    store.commit()
+    thursdayLinkId.value = doc.id;
+    console.log(thursdayLinkId.value);
   });
 });
 
@@ -305,13 +313,20 @@ const addNewBlog = () => {
   });
 };
 const thursdayLink = ref("");
-const addLink = () => {
-  console.log(thursdayLink.value);
-  addDoc(collection(db, "cloudThursdayLink"), {
+
+const UpdateLink = async () => {
+  updateDoc(doc(db, "cloudThursdayUrl", thursdayLinkId.value), {
     link: thursdayLink.value,
   });
   toast.success("Uploaded Successfully", {
     autoClose: 2000,
+  });
+  const querySnapshot = await getDocs(collection(db, "cloudThursdayUrl"));
+  querySnapshot.forEach((doc) => {
+    // doc.data() is never undefined for query doc snapshots
+    thursdayLink.value = doc.data().link;
+    thursdayLinkId.value = doc.id;
+    console.log(thursdayLinkId.value);
   });
 };
 </script>

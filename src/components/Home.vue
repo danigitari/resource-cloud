@@ -34,7 +34,7 @@
                   class="mb-10 font-semibold text-md text-white flex justify-right pl-5 text-left"
                 >
                   We help students in IT-related courses equip themselves with
-                  relevant skills before they are out of the university.  Our
+                  relevant skills before they are out of the university. Our
                   main niche is in the matters cloud but we believe that all
                   students taking IT-related courses can benefit from mastering
                   communication and presentation skills, and the art of personal
@@ -98,7 +98,7 @@
       >
         <article class="">
           <span
-            class="text-4xl  flex justify-center p-5 text-[#0146a1] font-semibold"
+            class="text-4xl flex justify-center p-5 text-[#0146a1] font-semibold"
           >
             20 +
           </span>
@@ -135,22 +135,23 @@
       <div
         class="lg:w-1/2 w-full grid items-center place-items-center pr-5 lg:pr-20 h-96"
       >
-        <article class="font-semibold text-2xl flex justify-center text-center h-4">
+        <article
+          class="font-semibold text-2xl flex justify-center text-center h-4"
+        >
           Creating a supportive and collaborative community that fosters new
           ideas and creativity now and for future generations
         </article>
 
-        <button
+        <a
+          :href="currentLink"
+          target="_blank"
           class="bg-[#0146a1] text-white text-md px-5 py-2 lg:mb-10 rounded-md flex justify-center"
         >
-          Join the Next Cloud Thursday 
-        </button>
-        {{ store.getters.cloudThursdayUrl}}
+          Join the Next Cloud Thursday
+        </a>
       </div>
     </div>
-    <div
-      class="flex flex-wrap gap-10 justify-center pb-20 pt-20 bg-blue-600"
-    >
+    <div class="flex flex-wrap gap-10 justify-center pb-20 pt-20 bg-blue-600">
       <div class="lg:w-1/3 sm:w-3/4 p-5 m-5 bg-white rounded-md shadow-lg">
         <p class="text-xl font-semibold flex justify-center">Mission</p>
         <article class="p-5">
@@ -267,6 +268,8 @@ import { onBeforeMount, onMounted, ref } from "vue";
 import { useStore } from "vuex";
 import { storage } from "../firebase";
 import { listAll, ref as reference, getDownloadURL } from "firebase/storage";
+import { addDoc, collection, getDocs } from "firebase/firestore";
+import { db} from "../firebase"
 export default {
   components: {
     Navigation,
@@ -275,7 +278,7 @@ export default {
 
   setup() {
     const currentImage = ref("");
-    const currentLink = ref()
+    const currentLink = ref("");
 
     const store = useStore();
     const swipe = () => {
@@ -303,7 +306,12 @@ export default {
         navbar.classList.toggle("sticky", window.scrollY > 0);
       });
     };
-    onBeforeMount(() => {
+    onBeforeMount(async () => {
+      const querySnapshot = await getDocs(collection(db, "cloudThursdayLink"));
+      querySnapshot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+        currentLink.value = doc.data().link;
+      });
       listAll(reference(storage)).then((res) => {
         console.log(res.items, "res");
 
@@ -323,13 +331,13 @@ export default {
     onMounted(() => {
       swipe();
       toggleNavbarClass();
-  
     });
     return {
       swipe,
       toggleNavbarClass,
       store,
       currentImage,
+      currentLink
     };
   },
 };
