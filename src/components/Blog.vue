@@ -34,14 +34,16 @@
         </p>
         <p class="px-5 py-2 text-md font-semibold">January 23, 2023</p>
         <p class="px-5 py-2 text-xs font-thin">Est read time: 4 min</p>
-        <p class="px-5 py-2"></p>
+        <p class="py-2 px-5 font-bold">James Jumah Sindani</p>
+        <p class="py-"></p>
         <a
           href="https://www.linkedin.com/pulse/traditional-monolithic-vs-3-tier-architectures-james-juma-sindani"
-          class="p-5 text-[#0146a1] text-lg font-bold"
+          class="px-5 py-20 text-[#0146a1] text-lg font-bold"
           target="_blank"
         >
           Read more >>
         </a>
+        <p class="py-5"></p>
       </article>
       <!-- <article
         class="bg-white pb-5 rounded-md shadow-lg overflow-hidden hover:scale-[1.05] duration-300 ease-in"
@@ -94,7 +96,7 @@
         <p class="px-5 py-2 font-bold">Zipporah Wachira</p>
         <p class="py-2"></p>
         <a
-          href="https://www.linkedin.com/pulse/traditional-monolithic-vs-3-tier-architectures-james-juma-sindani"
+          href="https://medium.com/@zippypurity44/dr-architectures-on-the-aws-cloud-backup-and-restore-services-619dbc422023"
           class="px-5 py-20 text-[#0146a1] text-lg font-bold"
           target="_blank"
         >
@@ -148,6 +150,10 @@ import {
 } from "firebase/firestore";
 import { auth, db } from "../firebase";
 import { onMounted, ref } from "vue";
+import { useMagicKeys, whenever } from "@vueuse/core";
+import { useRouter } from "vue-router";
+
+
 
 export default {
   components: {
@@ -156,7 +162,14 @@ export default {
   },
 
   setup() {
+    const { Ctrl_A_Z  } = useMagicKeys();
+    whenever(Ctrl_A_Z, () => {
+      router.push("login");
+      console.log("asdf");
+    });
+
     const docs = ref([]);
+    const router = useRouter();
 
     onMounted(() => {
       const q = query(

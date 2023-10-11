@@ -310,5 +310,8 @@ const addLink = () => {
   addDoc(collection(db, "cloudThursdayLink"), {
     link: thursdayLink.value,
   });
+  toast.success("Uploaded Successfully", {
+    autoClose: 2000,
+  });
 };
 </script>
