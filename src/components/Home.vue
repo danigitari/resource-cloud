@@ -145,6 +145,7 @@
         >
           Join the Next Cloud Thursday 
         </button>
+        {{ store.getters.cloudThursdayUrl}}
       </div>
     </div>
     <div
@@ -274,6 +275,7 @@ export default {
 
   setup() {
     const currentImage = ref("");
+    const currentLink = ref()
 
     const store = useStore();
     const swipe = () => {
@@ -321,6 +323,7 @@ export default {
     onMounted(() => {
       swipe();
       toggleNavbarClass();
+  
     });
     return {
       swipe,

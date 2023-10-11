@@ -24,7 +24,7 @@ export default createStore({
     user: null,
     cloudThursdayImage: null,
     isLoading: false,
-    cloudThursdayUrl : null
+    cloudThursdayUrl : "asdf"
   },
   getters: {
     user: (state) => state.user,
@@ -45,7 +45,7 @@ export default createStore({
     },
     SET_CLOUD_THURSDAY_URL(state, url) {
       state.cloudThursdayUrl = url;
-      console.log(state.cloudThursdayImage);
+      console.log(state.cloudThursdayUrl);
     },
     SET_ISLOADING(state, isLoading) {
       state.isLoading = isLoading;
