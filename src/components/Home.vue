@@ -307,11 +307,7 @@ export default {
       });
     };
     onBeforeMount(async () => {
-      const querySnapshot = await getDocs(collection(db, "cloudThursdayLink"));
-      querySnapshot.forEach((doc) => {
-        // doc.data() is never undefined for query doc snapshots
-        currentLink.value = doc.data().link;
-      });
+
       listAll(reference(storage)).then((res) => {
         console.log(res.items, "res");
 
@@ -328,9 +324,16 @@ export default {
       });
     });
 
-    onMounted(() => {
+    onMounted(async() => {
       swipe();
       toggleNavbarClass();
+      const querySnapshot = await getDocs(collection(db, "cloudThursdayLink"));
+      querySnapshot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+        currentLink.value = doc.data().link;
+
+        console.log(currentLink.value, "link")
+      });
     });
     return {
       swipe,

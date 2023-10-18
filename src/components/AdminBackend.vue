@@ -279,7 +279,19 @@ const listImages = () => {
 const isloading = ref(false);
 function submitFile() {
   isloading.value = true;
-  const imageRef = reference(storage, `${file.value + v4()}`);
+    const desertRef = reference(storage);
+  listAll(desertRef).then((response) => {
+    response.items.forEach((item) => {
+      deleteObject(reference(storage, "/" + item.name))
+        .then(() => {
+          console.log("deleted", item.name);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    });
+  });
+  const imageRef = reference(storage, `${file.value.name + v4()}`);
   uploadBytes(imageRef, file.value).then((snapshot) => {
     getDownloadURL(snapshot.ref).then((url) => {
       toast.success("Uploaded Successfully", {
